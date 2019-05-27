@@ -53,7 +53,7 @@ class SleepTrackerViewModel(val database: SleepDatabaseDao,
 
     private var tonight = MutableLiveData<SleepNight?>()
 
-    private val nights = database.getAllNights()
+    val nights = database.getAllNights()
 
     /**
      * Variable that tells the Fragment to navigate to a specific [SleepQualityFragment]

@@ -61,6 +61,16 @@ class SleepTrackerFragment : Fragment() {
 
         binding.sleepTrackerViewModel = sleepTrackerViewModel
 
+        val adapter = SleepNightAdapter()
+        binding.sleepList.adapter = adapter
+
+        sleepTrackerViewModel.nights.observe(this, Observer {
+            //if "it not equal to null"
+            it?.let {
+                adapter.data = it
+            }
+        })
+
         /*This is used instead of doing viewModel.currentTime.observer()...*/
         binding.setLifecycleOwner(this)
 
